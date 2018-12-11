@@ -1,0 +1,305 @@
+.button {
+  padding: 10px 5px;
+  box-shadow: 0 1px 2px 0 #d1d3db, 0 5px 16px 0 rgba(0, 0, 0, 0.04);
+  background-color: white;
+
+  &--copy {
+    @extend .button;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #e51e1e;
+    color: white;
+  }
+}
+
+button {
+  border: none;
+}
+
+.color-sample {
+  width: 25px;
+  height: 25px;
+  margin-right: 25px;
+}
+
+.flex-container {
+  display: flex;
+
+  &--align-center {
+    @extend .flex-container;
+    align-items: center;
+  }
+
+  &--justify-center {
+    @extend .flex-container;
+    justify-content: center;
+  }
+
+  &--center-all {
+    @extend .flex-container;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--space-between {
+    @extend .flex-container;
+    justify-content: space-between;
+  }
+}
+
+.arrow {
+  width: 20px;
+  margin: 20px;
+  cursor: pointer;
+
+  img {
+    max-width: 100%;
+  }
+
+  &--prev {
+    img {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.calendar {
+  background-color: #f0f1f5;
+  height: 100vh;
+  font-size: 12px;
+
+  &__cell-button {
+    color: black;
+    margin: 5px;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__main-dates {
+    padding: 50px 0;
+    h1 {
+      margin: 0;
+    }
+
+    h4 {
+      margin: 0;
+    }
+  }
+
+  &__options {
+    padding: 0px 0;
+    // border: 1px solid red;
+
+    .button {
+      background-color: #d8d8d8;
+      padding: 10px 20px;
+      margin: 0 5px;
+      font-weight: 700;
+    }
+  }
+
+  .popup {
+    &__button {
+      font-weight: 700;
+      padding: 10px 20px;
+      font-size: 12px;
+      background-color: #111111;
+      color: white;
+      margin-right: 10px;
+    }
+
+    &__input-wrapper {
+      margin: 30px 0;
+    }
+
+    &__label {
+      font-weight: 700;
+    }
+
+    &__input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d8d8d8;
+      background-color: #f0f1f5;
+    }
+
+    &__header {
+      h2 {
+        font-weight: 700;
+      }
+    }
+
+    &__content {
+      margin: 50px 0;
+
+      h5 {
+        font-weight: 700;
+        margin: 5px 0;
+      }
+    }
+
+    &__list-item {
+      background-color: #f0f1f5;
+      padding: 5px;
+      margin: 10px 0;
+
+      input {
+        background-color: white;
+      }
+
+      button {
+        margin: 0 5px;
+      }
+    }
+  }
+
+  table {
+    //padding: 50px 0;
+    background-color: #f0f1f5;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0.5em 0.5em;
+  }
+
+  th {
+    background-color: white;
+    color: black;
+    padding: 5px;
+    box-shadow: 0 1px 2px 0 #d1d3db, 0 5px 16px 0 rgba(0, 0, 0, 0.04);
+    max-width: 100px;
+    font-size: 12px;
+
+    &.empty {
+      background-color: transparent;
+      box-shadow: none;
+      color: black;
+      cursor: pointer;
+    }
+
+    &.name {
+      color: white;
+
+      p {
+        margin: 10px 0 0 0;
+
+        &.position {
+          font-size: 10px;
+          margin: 5px 0;
+        }
+      }
+
+      button {
+        width: 100%;
+        margin: 3px 0;
+        padding: 5px 10px;
+        font-size: 10px;
+        border: 1px solid white;
+        color: white;
+      }
+    }
+
+    &.weekend {
+      background-color: #d8d8d8;
+    }
+
+    &.holiday {
+      background-color: #f4a1a1;
+    }
+
+    &.today {
+      border: 5px solid #111111;
+    }
+  }
+
+  td {
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 #d1d3db, 0 5px 16px 0 rgba(0, 0, 0, 0.04);
+
+    button {
+      background-color: white;
+    }
+
+    &.weekend {
+      background-color: #d8d8d8;
+
+      button {
+        background-color: #d8d8d8;
+      }
+    }
+
+    &.holiday {
+      background-color: #f4a1a1;
+
+      button {
+        background-color: #f4a1a1;
+      }
+    }
+  }
+
+  .single-task {
+    padding: 10px;
+    margin: 5px;
+    color: white;
+
+    a {
+      color: white;
+      margin: 5px 0 10px 0;
+    }
+
+    button {
+      padding: 5px 10px;
+      font-size: 10px;
+      margin: 3px;
+    }
+
+    &.vacation {
+      background-color: #ed6363;
+
+      button {
+        background-color: #bd4f4f;
+      }
+    }
+
+    &.task {
+      background-color: #333333;
+
+      button {
+        background-color: #111111;
+      }
+    }
+
+    &.copied.vacation {
+      border: 5px solid #b70000;
+    }
+
+    &.copied.task {
+      border: 5px solid #111111;
+    }
+
+    &__flex-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__user {
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 12px;
+      font-weight: 700;
+      margin: 5px 0 10px 0;
+    }
+  }
+}
+
+.deleteUser {
+  color: #000;
+}
