@@ -65,22 +65,22 @@ class AddTaskPopup extends Component {
     return (
       <div className="popup">
         <div className="popup__header">
-          <h2>Dodaj zadanie</h2>
+          <h2>Dodaj</h2>
         </div>
         <div className="popup__content">
           <div className="popup__input-wrapper">
-            <label className="popup__label">Typ zadania:</label>
+            <label className="popup__label">Typ:</label>
             <select className="popup__input" ref="typeInput">
               <option value="1">Zadanie</option>
               <option value="2">Urlop</option>
             </select>
           </div>
           <div className="popup__input-wrapper">
-            <label className="popup__label">Nazwa zadania:</label>
+            <label className="popup__label">Nazwa:</label>
             <input className="popup__input" ref="nameInput" />
           </div>
           <div className="popup__input-wrapper">
-            <label className="popup__label">Opis zadania:</label>
+            <label className="popup__label">Opis:</label>
             <input className="popup__input" ref="descriptionInput" />
           </div>
           <div className="popup__input-wrapper">

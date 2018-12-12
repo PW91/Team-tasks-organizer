@@ -132,7 +132,7 @@ class TaskDetailsPopup extends Component {
       structure = (
         <div>
           <div className="popup__header">
-            <h2>Szczegóły zadania</h2>
+            <h2>Szczegóły</h2>
           </div>
           <div className="popup__content">
             <h5>Typ:</h5>
@@ -143,7 +143,11 @@ class TaskDetailsPopup extends Component {
             <p>{this.props.taskDetails.description}</p>
             <h5>Link:</h5>
             <p>
-              <a href={this.props.taskDetails.link} target="_blank">
+              <a
+                href={this.props.taskDetails.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {this.props.taskDetails.link}
               </a>
             </p>

@@ -106,8 +106,12 @@ export default class SingleTask extends Component {
 
     if (this.props.task.link) {
       activeCollabLink = (
-        <a href={this.props.task.link} target="_blank">
-          Active Collab
+        <a
+          href={this.props.task.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Link
         </a>
       );
     }

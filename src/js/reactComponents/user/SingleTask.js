@@ -66,9 +66,10 @@ export default class SingleTask extends Component {
         <a
           href={this.props.task.link}
           target="_blank"
+          rel="noopener noreferrer"
           onClick={this.stopPropagation}
         >
-          Active Collab
+          Link
         </a>
       );
     }
