@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Popup from "react-popup";
 import store from "../../store/Store";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   setDate,
   fetchUsers,
@@ -220,6 +221,9 @@ class Calendar extends Component {
 
       return (
         <div className="calendar">
+          <div className="flex-container--justify-center calendar__go-to-panel">
+            <Link to="/">Przejdź do panelu użytkownika</Link>
+          </div>
           <div className="calendar__header">
             <div className="calendar__options">
               <AddUserButton />

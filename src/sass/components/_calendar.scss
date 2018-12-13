@@ -71,6 +71,20 @@ button {
   height: 100vh;
   font-size: 12px;
 
+  &__go-to-panel {
+    margin-bottom: 20px;
+
+    a {
+      margin: 0 auto;
+      padding: 10px 20px;
+      box-shadow: 0 1px 2px 0 #d1d3db, 0 5px 16px 0 rgba(0, 0, 0, 0.04);
+      background-color: white;
+      text-decoration: none;
+      color: #000;
+      font-weight: 700;
+    }
+  }
+
   &__cell-button {
     color: black;
     margin: 5px;

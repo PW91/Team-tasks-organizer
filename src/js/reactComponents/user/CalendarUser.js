@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Popup from "react-popup";
 import store from "../../store/Store";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   setDate,
   fetchUsers,
@@ -196,6 +197,9 @@ class CalendarUser extends Component {
 
       return (
         <div className="calendar">
+          <div className="flex-container--justify-center calendar__go-to-panel">
+            <Link to="admin">Przejdź do panelu administratora</Link>
+          </div>
           <div className="calendar__header">
             <div className="calendar__options" />
             <div className="calendar__main-dates">
