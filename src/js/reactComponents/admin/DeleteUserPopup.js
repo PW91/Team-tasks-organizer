@@ -37,7 +37,7 @@ export default class DeleteUserPopup extends Component {
     return (
       <div className="popup">
         <div className="popup__header">
-          <h2>Czy na pewno chcesz usunąć użytkownika?</h2>
+          <h2>Czy na pewno chcesz usunąć?</h2>
         </div>
         <div className="popup__cta">
           <button className="popup__button" onClick={this.handleConfirmation}>
