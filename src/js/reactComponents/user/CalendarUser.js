@@ -136,6 +136,18 @@ class CalendarUser extends Component {
   }
 
   render() {
+    // show loading:
+
+    let loadingEl = "";
+
+    if (this.props.loading) {
+      loadingEl = (
+        <div className="calendar__loader flex-container--justify-center ">
+          <p>Pobieranie danych...</p>
+        </div>
+      );
+    }
+
     // render only if props, which come from redux store, are ready:
 
     if (this.state.reduxPropsReady) {
@@ -224,6 +236,7 @@ class CalendarUser extends Component {
               </h4>
             </div>
           </div>
+          {loadingEl}
           <table>
             <thead>
               <tr>
@@ -319,7 +332,8 @@ function mapStateToProps(state) {
     weekNum: state.calendarData.week,
     weekTasks: state.calendarData.weekTasks,
     year: state.calendarData.year,
-    sortingBySurnameFlag: state.calendarData.sortingBySurnameFlag
+    sortingBySurnameFlag: state.calendarData.sortingBySurnameFlag,
+    loading: state.calendarData.loading
   };
 }
 

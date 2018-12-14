@@ -1,48 +1,47 @@
 // imports:
 
-import React, { Component } from 'react';
-import Popup from 'react-popup';
-import UserDetailsPopup from './UserDetailsPopup';
-
-
+import React, { Component } from "react";
+import Popup from "react-popup";
+import UserDetailsPopup from "./UserDetailsPopup";
 
 // component's class definition including it's export:
 
 export default class UserDetailsButton extends Component {
+  constructor() {
+    super();
 
-    constructor() {
+    // component's functions 'this' context bindings:
 
-        super();
+    this.handleUserDetailsPopup = this.handleUserDetailsPopup.bind(this);
+  }
 
-        // component's functions 'this' context bindings:
+  // function, which handles user details button click (showing user details popup):
 
-        this.handleUserDetailsPopup = this.handleUserDetailsPopup.bind( this );
-    }
+  handleUserDetailsPopup(e) {
+    const user = this.props.user;
 
-    // function, which handles user details button click (showing user details popup):
+    Popup.registerPlugin("prompt", function() {
+      this.create({
+        content: <UserDetailsPopup userInfo={user} />
+      });
+    });
 
-    handleUserDetailsPopup( e ) {
+    Popup.plugins().prompt();
+  }
 
-      const user = this.props.user;
+  render() {
+    // rendering html elements:
 
-      Popup.registerPlugin( 'prompt', function () {
-		    this.create({
-		        content: <UserDetailsPopup userInfo = { user }/> 
-		    })
-        })
-        
-		Popup.plugins().prompt();
-    }
-  
-    render() {
-
-        // rendering html elements:
-
-        return (
-            <div>
-                <button className = 'calendar__cell-button' style = {{ backgroundColor: this.props.color }} onClick = { this.handleUserDetailsPopup }>Szczegóły</button>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <button
+          className="calendar__cell-button"
+          style={{ backgroundColor: this.props.color }}
+          onClick={this.handleUserDetailsPopup}
+        >
+          Szczegóły
+        </button>
+      </div>
+    );
+  }
 }
-

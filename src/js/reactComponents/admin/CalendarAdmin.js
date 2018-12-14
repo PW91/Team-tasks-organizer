@@ -146,6 +146,18 @@ class Calendar extends Component {
   }
 
   render() {
+    // show loading:
+
+    let loadingEl = "";
+
+    if (this.props.loading) {
+      loadingEl = (
+        <div className="calendar__loader flex-container--justify-center ">
+          <p>Pobieranie danych...</p>
+        </div>
+      );
+    }
+
     // render only if props, which come from redux store, are ready:
 
     if (this.state.reduxPropsReady) {
@@ -251,6 +263,8 @@ class Calendar extends Component {
               </h4>
             </div>
           </div>
+          {loadingEl}
+          {copyModeButton}
           <table>
             <thead>
               <tr>
@@ -302,7 +316,6 @@ class Calendar extends Component {
               ))}
             </tbody>
           </table>
-          {copyModeButton}
           <Popup btnClass="mm-popup__btn button" closeHtml={"Zamknij"} />
         </div>
       );
@@ -351,7 +364,8 @@ function mapStateToProps(state) {
     year: state.calendarData.year,
     sortingBySurnameFlag: state.calendarData.sortingBySurnameFlag,
     copyMode: state.calendarData.copyMode,
-    copiedTask: state.calendarData.copiedTask
+    copiedTask: state.calendarData.copiedTask,
+    loading: state.calendarData.loading
   };
 }
 

@@ -1,49 +1,49 @@
 // imports:
 
-import React, { Component } from 'react';
-import DeleteUserPopup from './DeleteUserPopup';
-import Popup from 'react-popup';
-
-
+import React, { Component } from "react";
+import DeleteUserPopup from "./DeleteUserPopup";
+import Popup from "react-popup";
 
 // component's class definition including it's export:
 
 export default class DeleteUserButton extends Component {
+  constructor() {
+    super();
 
-    constructor() {
+    // component's functions 'this' context bindings:
 
-        super();
+    this.handleDeleteUserPopup = this.handleDeleteUserPopup.bind(this);
+  }
 
-        // component's functions 'this' context bindings:
+  // function, which handles delete button click (opening confirmation popup):
 
-        this.handleDeleteUserPopup = this.handleDeleteUserPopup.bind( this );
-    }
+  handleDeleteUserPopup(e) {
+    const userId = e.target.parentElement.parentElement.parentElement.getAttribute(
+      "id"
+    );
 
-    // function, which handles delete button click (opening confirmation popup):
+    Popup.registerPlugin("prompt", function() {
+      this.create({
+        content: <DeleteUserPopup id={userId} />
+      });
+    });
 
-    handleDeleteUserPopup(e) {
-        
-      const userId = e.target.parentElement.parentElement.parentElement.getAttribute( 'id' );
+    Popup.plugins().prompt();
+  }
 
-      Popup.registerPlugin( 'prompt', function () {
-		    this.create({
-		        content: <DeleteUserPopup id = { userId }/> 
-		    })
-        })
-        
-		Popup.plugins().prompt();
-    }
-  
-    render() {
+  render() {
+    // rendering html elements:
 
-        // rendering html elements:
-
-        return (
-            <div>
-                <button className='calendar__cell-button' style = {{ backgroundColor: this.props.color }} onClick = { this.handleDeleteUserPopup }>Usuń</button>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <button
+          className="calendar__cell-button"
+          style={{ backgroundColor: this.props.color }}
+          onClick={this.handleDeleteUserPopup}
+        >
+          Usuń
+        </button>
+      </div>
+    );
+  }
 }
-
-

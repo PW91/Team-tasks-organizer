@@ -5,13 +5,15 @@
 
   &--copy {
     @extend .button;
-    width: 100%;
+    width: 25%;
     margin: 0 auto;
     padding: 10px 0;
     font-size: 20px;
     font-weight: 700;
     background-color: #e51e1e;
     color: white;
+    display: block;
+    margin-bottom: 30px;
   }
 }
 
@@ -118,6 +120,10 @@ button {
   }
 
   .popup {
+    select {
+      height: 34px;
+      border-radius: none;
+    }
     &__button {
       font-weight: 700;
       padding: 10px 20px;

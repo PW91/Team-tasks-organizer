@@ -45,8 +45,6 @@ export default class SingleTask extends Component {
 
     // add proper css class based on task type ('task' or 'vacation'):
 
-    console.log(this.props.task);
-
     if (
       parseInt(this.props.task.type, 10) === 1 ||
       this.props.task.type === "task"
@@ -73,8 +71,6 @@ export default class SingleTask extends Component {
         </a>
       );
     }
-
-    console.log("eldoka", taskTypeClass);
 
     // rendering html elements:
 

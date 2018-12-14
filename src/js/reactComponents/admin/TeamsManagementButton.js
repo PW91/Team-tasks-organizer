@@ -1,43 +1,41 @@
 // imports:
 
-import React, { Component } from 'react';
-import Popup from 'react-popup';
-import TeamsManagementPopup from './TeamsManagementPopup';
-
-
+import React, { Component } from "react";
+import Popup from "react-popup";
+import TeamsManagementPopup from "./TeamsManagementPopup";
 
 // component's class definition including it's export:
 
 export default class TeamsManagementButton extends Component {
+  constructor() {
+    super();
 
-    constructor() {
+    // component's functions 'this' context bindings:
 
-        super();
+    this.handleTeamsManagementPopup = this.handleTeamsManagementPopup.bind(
+      this
+    );
+  }
 
-        // component's functions 'this' context bindings:
+  // function, which handles teams management button click (opening management popup):
 
-        this.handleTeamsManagementPopup = this.handleTeamsManagementPopup.bind( this );
-    }
+  handleTeamsManagementPopup() {
+    Popup.registerPlugin("prompt", function() {
+      this.create({
+        content: <TeamsManagementPopup />
+      });
+    });
 
-    // function, which handles teams management button click (opening management popup):
+    Popup.plugins().prompt();
+  }
 
-    handleTeamsManagementPopup() {
+  render() {
+    // rendering html elements:
 
-		Popup.registerPlugin( 'prompt', function () {
-		    this.create({
-		        content: <TeamsManagementPopup/>
-		    })
-        })
-
-		Popup.plugins().prompt();
-    }
-
-    render() {
-
-        // rendering html elements:
-
-        return (
-            <button className = 'button' onClick = { this.handleTeamsManagementPopup }>Zarządzaj zespołami</button>
-        )
-    }
+    return (
+      <button className="button" onClick={this.handleTeamsManagementPopup}>
+        Zarządzaj zespołami
+      </button>
+    );
+  }
 }
